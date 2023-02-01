@@ -22,5 +22,5 @@ test('Should add item to cart', async()=>{
   //await Page.waitForSelector("(//div[@class='cart-icon'])[1]")
   await Page.click("//a[@class='btn btn-primary btn-block']");
   //await expect(Page.locator("(//img[@class='img-thumbnail'])[2]")).toBeVisible()
-  await expect(Page.locator("(//input[@class='form-control'])[1]")).toHaveCount(1)
+  await expect(Page.locator("(//input[@class='form-control'])[1]")).toHaveCount(1);
 })
