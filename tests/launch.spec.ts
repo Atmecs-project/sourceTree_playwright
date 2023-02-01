@@ -20,7 +20,7 @@ test('Should add item to cart', async()=>{
   await Page.click("(//div[@class='carousel-item active'])[1]")
   await Page.click("(//button[@title='Add to Cart'])[2]")
   //await Page.waitForSelector("(//div[@class='cart-icon'])[1]")
-  await Page.click("//a[@class='btn btn-primary btn-block']")
+  await Page.click("//a[@class='btn btn-primary btn-block']");
   //await expect(Page.locator("(//img[@class='img-thumbnail'])[2]")).toBeVisible()
   await expect(Page.locator("(//input[@class='form-control'])[1]")).toHaveCount(1)
 })
