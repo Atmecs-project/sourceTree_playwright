@@ -27,7 +27,7 @@ import { devices } from '@playwright/test';
  */
 const config: PlaywrightTestConfig = {
   testDir: './tests',
-  testMatch: ["tests/alerts.test.ts"],
+  testMatch: ["tests/dropdown.test.ts"],
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -59,6 +59,9 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     video: 'on',
     trace: 'on-first-retry',
+    launchOptions:{
+      slowMo: 1000
+    }
   },
 
   /* Configure projects for major browsers */
