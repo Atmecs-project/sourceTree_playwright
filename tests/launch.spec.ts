@@ -1,6 +1,8 @@
 import { test,expect,  chromium } from '@playwright/test';
 test('Should add item to cart', async()=>{
-  const Browser = await chromium.launch();
+  const Browser = await chromium.launch({
+    headless: false
+  });
   const Context = await Browser.newContext();
   const Page = await Context.newPage();
   await Page.goto('https://ecommerce-playground.lambdatest.io/');
@@ -14,6 +16,7 @@ test('Should add item to cart', async()=>{
   await Page.hover("(//a[@data-toggle='dropdown'])[3]")
   //await Page.click("(//span['text=Login'])[43]")
   await Page.click("'Login'")
+  await Page.waitForTimeout(5000);
   await Page.hover("(//a[@data-toggle='dropdown'])[1]")
   //await Page.click("//a[@title='Desktop']")
   await Page.click("'Desktop'")
@@ -23,4 +26,7 @@ test('Should add item to cart', async()=>{
   await Page.click("//a[@class='btn btn-primary btn-block']")
   //await expect(Page.locator("(//img[@class='img-thumbnail'])[2]")).toBeVisible()
   await expect(Page.locator("(//input[@class='form-control'])[1]")).toHaveCount(1)
+  const newcontext = await Browser.newContext()
+  const newPage = await newcontext.newPage();
+  await newPage.goto("https://www.google.com")
 })
